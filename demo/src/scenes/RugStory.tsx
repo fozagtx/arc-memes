@@ -100,7 +100,7 @@ export const RugStory: React.FC<RugStoryProps> = ({ revealAt, dumpAt }) => {
       {/* Sam's wallet + buy */}
       <div style={{ position: "absolute", left: 820, top: 70, width: 420, opacity: enter * (mapOn ? 1 - reveal : 1) }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 18 }}>
-          <div style={{ width: 48, height: 48, borderRadius: 24, background: "#27272a", border: `1px solid ${BRAND.border}`, display: "grid", placeItems: "center", fontWeight: 600 }}>S</div>
+          <div style={{ width: 48, height: 48, borderRadius: 24, background: BRAND.subtle, border: `1px solid ${BRAND.border}`, display: "grid", placeItems: "center", fontWeight: 600 }}>S</div>
           <div>
             <div style={{ fontSize: 22, fontWeight: 600 }}>Sam</div>
             <div style={{ fontSize: 15, color: BRAND.muted }}>New to Arc</div>
@@ -116,7 +116,7 @@ export const RugStory: React.FC<RugStoryProps> = ({ revealAt, dumpAt }) => {
         <div
           style={{
             marginTop: 16, height: 64, borderRadius: 14, display: "grid", placeItems: "center", fontSize: 22, fontWeight: 600,
-            background: bought ? "#1b1b1f" : BRAND.up, color: bought ? BRAND.muted : "#052e16", transform: `scale(${press})`,
+            background: bought ? BRAND.subtle : BRAND.up, color: bought ? BRAND.muted : "#ffffff", transform: `scale(${press})`,
             opacity: interpolate(frame, [60, 80], [0, 1], clamp),
           }}
         >
@@ -129,7 +129,7 @@ export const RugStory: React.FC<RugStoryProps> = ({ revealAt, dumpAt }) => {
         <AbsoluteFill>
           <div style={{ position: "absolute", left: 64, top: 120, opacity: reveal }}>
             <div style={{ fontSize: 22, color: BRAND.muted, marginBottom: 6 }}>What Sam can't see</div>
-            <div style={{ fontSize: 132, fontWeight: 700, lineHeight: 1, color: BRAND.down, fontVariantNumeric: "tabular-nums", opacity: interpolate(frame, [revealAt + 145, revealAt + 155], [0, 1], clamp) }}>
+            <div style={{ fontSize: 132, fontWeight: 700, lineHeight: 1, color: BRAND.down, fontVariantNumeric: "tabular-nums", opacity: interpolate(frame, [revealAt + 152, revealAt + 160], [0, 1], clamp) }}>
               {Math.round(33 * interpolate(frame, [revealAt + 150, revealAt + 200], [0, 1], { ...clamp, easing: out }))}%
             </div>
             <div style={{ fontSize: 30, fontWeight: 600, marginTop: 10, opacity: interpolate(frame, [revealAt + 150, revealAt + 170], [0, 1], clamp) }}>
@@ -156,7 +156,7 @@ export const RugStory: React.FC<RugStoryProps> = ({ revealAt, dumpAt }) => {
             return (
               <div style={{ position: "absolute", left: funder.x - 120, top: funder.y - 40, width: 240, textAlign: "center", opacity: p }}>
                 <div style={{ fontSize: 14, color: BRAND.muted, marginBottom: 8 }}>Same funder</div>
-                <div style={{ height: 56, borderRadius: 12, background: "#2a1214", border: `1px solid ${BRAND.down}`, display: "grid", placeItems: "center", fontSize: 18, fontFamily: "monospace" }}>0x9f3…a11</div>
+                <div style={{ height: 56, borderRadius: 12, background: "#fdecea", border: `1px solid ${BRAND.down}`, display: "grid", placeItems: "center", fontSize: 18, fontFamily: "monospace" }}>0x9f3…a11</div>
               </div>
             );
           })()}

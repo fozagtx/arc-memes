@@ -45,7 +45,7 @@ export const Demo: React.FC = () => {
   const scan = span("s7_scan");
   const copyCa = 100;
   return (
-    <SnapCnUIProvider mode="dark" theme={THEME}>
+    <SnapCnUIProvider mode="light" theme={THEME}>
       <AbsoluteFill style={{ background: BRAND.page }}>
         {/* 1. Hook: the real launchpad on Arc */}
         <Sequence {...span("s1_arc")}>
@@ -67,7 +67,7 @@ export const Demo: React.FC = () => {
         {/* 5. The problem */}
         <Sequence {...span("s5_problem")}>
           <PunchLines
-            mode="dark"
+            mode="light"
             script="Every single day. | Bundled launches. | No community. / No trust. | New people come to build. / They get drained."
             styles="slide,punch,slide,slide"
             sizes="0.8,1.3,1,0.8"
@@ -80,6 +80,8 @@ export const Demo: React.FC = () => {
         {/* 6. Install: the real command and its real output */}
         <Sequence {...span("s6_install")}>
           <TerminalSimulator
+            mode="light"
+            theme={{ ...THEME, background: "transparent" }}
             intro="Add *Arc Memecoin Intel* to your agent"
             command={{ managers: ["npx"], text: "npx skills add fozagtx/arc-memes" }}
             lines={[
@@ -103,7 +105,7 @@ export const Demo: React.FC = () => {
         <Sequence from={scan.from + copyCa} durationInFrames={scan.durationInFrames - copyCa}>
           <AbsoluteFill style={{ transform: "scale(1.6)", top: 20 }}>
           <AgentSteps
-            mode="dark"
+            mode="light"
             glowRadius={0}
             query="Scan 0x5ad1…c0de before I buy"
             steps={[
@@ -125,7 +127,7 @@ export const Demo: React.FC = () => {
         {/* 8. Sam scans first this time */}
         <Sequence {...span("s8_save")}>
           <PunchLines
-            mode="dark"
+            mode="light"
             script="This time, / Sam scans first. | Critical risk. | Sam keeps / the $500."
             styles="slide,punch,slide"
             sizes="0.9,1.3,1"
@@ -138,7 +140,7 @@ export const Demo: React.FC = () => {
         {/* 9. Name + install */}
         <Sequence {...span("s9_cta")}>
           <Sequence durationInFrames={78}>
-            <WordmarkCut mode="dark" word="Arc Intel" dotFrom={BRAND.accent} dotTo={BRAND.accentSoft} />
+            <WordmarkCut mode="light" word="Arc Intel" dotFrom={BRAND.accent} dotTo={BRAND.accentSoft} />
           </Sequence>
           <Sequence from={78}>
             <EndLine />
@@ -146,7 +148,7 @@ export const Demo: React.FC = () => {
         </Sequence>
 
         <Audio src={staticFile("voiceover.wav")} />
-        <WordCaptions captions={captions} preset="clean" mode="dark" fontSize={30} accentColor={BRAND.accentSoft} />
+        <WordCaptions captions={captions} preset="clean" mode="light" fontSize={30} accentColor={BRAND.accentSoft} />
       </AbsoluteFill>
     </SnapCnUIProvider>
   );

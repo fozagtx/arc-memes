@@ -1,14 +1,16 @@
-// snapcn design tokens (references/design.md): near-black page, one violet accent.
+// snapcn light design tokens (lib/snap-cn-ui/theme.ts defaultLightTheme): warm off-white page,
+// white cards, hairline borders, one violet accent.
 export const BRAND = {
-  page: "#0a0a0b",
-  card: "#141417",
-  border: "#26272b",
-  ink: "#fafafa",
-  muted: "#a1a1aa",
+  page: "#faf9f6",
+  card: "#ffffff",
+  subtle: "#f2f0eb",
+  border: "#d9d9d9",
+  ink: "#141414",
+  muted: "#6e6a63",
   accent: "#7c3aed",
   accentSoft: "#a855f7",
-  up: "#22c55e",
-  down: "#f97066",
+  up: "#16a34a",
+  down: "#d92d20",
 } as const;
 
 export const THEME = { primary: BRAND.accent, ring: BRAND.accent } as const;

@@ -2,7 +2,7 @@
 
 `arc-memecoin-intel-demo.mp4`: a 1:20 narrated demo (1920×1080). It shows the problem (bundled Arc launches draining new buyers), the install (`npx skills add fozagtx/arc-memes`), and a scan before buying.
 
-It's built in Remotion with [snapcn](https://github.com/snapcndev/snapcn) components (`screen-recording`, `punch-lines`, `terminal-simulator`, `agent-steps`, `word-captions`, `wordmark-cut`), following snapcn's design rules: near-black page, one violet accent, no gradients or glows. The only custom scene is `src/scenes/RugStory.tsx`, the chart, bundle map and dump, because snapcn ships no chart component.
+It's built in Remotion with [snapcn](https://github.com/snapcndev/snapcn) components (`screen-recording`, `punch-lines`, `terminal-simulator`, `agent-steps`, `word-captions`, `wordmark-cut`), following snapcn's light theme and design rules: warm off-white page, white cards, one violet accent, no gradients or glows. The only custom scene is `src/scenes/RugStory.tsx`, the chart, bundle map and dump, because snapcn ships no chart component.
 
 The Argus screenshots in `public/` are real. `$MOONARC`, Sam, and every address and number in the rug and scan scenes are fictional, and the video labels them on screen.
 
