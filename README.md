@@ -11,12 +11,24 @@ This is educational tooling only. It is not financial advice.
 - `skills/arc-memecoin-intel/references/`: Arc network notes, bundle signals, scoring, the report template, and the full-suite blueprint
 - `scripts/install.sh` / `scripts/verify.sh`: install into Claude, Codex, or generic agent skill folders
 
-## Install
+## Install (one line)
 
 ```bash
-./scripts/verify.sh
-./scripts/install.sh all        # or: claude | codex | agents | --dest PATH
+curl -fsSL https://raw.githubusercontent.com/fozagtx/arc-memes/main/scripts/install.sh | bash
 ```
+
+That clones the repo, copies the skill into `~/.claude/skills/arc-memecoin-intel`, and cleans up. Restart Claude Code and ask *"use arc-memecoin-intel to scan 0x…"*. The agent runs the scanner for you. You never have to touch Python yourself.
+
+Other agents: `... | bash -s -- codex`, `... | bash -s -- all`, or `... | bash -s -- --dest /your/skills/arc-memecoin-intel`.
+
+**Or with git clone:**
+
+```bash
+git clone https://github.com/fozagtx/arc-memes.git
+cd arc-memes && ./scripts/install.sh            # claude | codex | agents | all
+```
+
+**Requirements:** `git`, plus Python 3 for the scanner. Python 3 comes preinstalled on macOS and Linux, and the scanner needs no `pip install` because it uses only the standard library. On Windows, use WSL or install Python from python.org.
 
 ## Use the scanner directly
 

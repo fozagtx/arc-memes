@@ -1,8 +1,22 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SKILL_NAME="arc-memecoin-intel"
+REPO_URL="${ARC_MEMES_REPO:-https://github.com/fozagtx/arc-memes.git}"
+REPO_REF="${ARC_MEMES_REF:-main}"
+
+# Works two ways: run from a clone (./scripts/install.sh), or piped from curl
+# (curl -fsSL .../install.sh | bash), in which case we git clone into a temp dir first.
+SCRIPT_PATH="${BASH_SOURCE[0]:-}"
+if [[ -n "$SCRIPT_PATH" && -f "$(dirname "$SCRIPT_PATH")/../skills/$SKILL_NAME/SKILL.md" ]]; then
+  ROOT_DIR="$(cd "$(dirname "$SCRIPT_PATH")/.." && pwd)"
+else
+  command -v git >/dev/null || { echo "git is required: install git, then re-run." >&2; exit 1; }
+  ROOT_DIR="$(mktemp -d)"
+  trap 'rm -rf "$ROOT_DIR"' EXIT
+  echo "Cloning $REPO_URL ($REPO_REF)..."
+  git clone --quiet --depth 1 --branch "$REPO_REF" "$REPO_URL" "$ROOT_DIR"
+fi
 SOURCE_DIR="$ROOT_DIR/skills/$SKILL_NAME"
 DRY_RUN=0
 TARGETS=()
@@ -11,6 +25,8 @@ CUSTOM_DEST=""
 usage() {
   cat <<'USAGE'
 Usage:
+  curl -fsSL https://raw.githubusercontent.com/fozagtx/arc-memes/main/scripts/install.sh | bash
+  curl -fsSL .../install.sh | bash -s -- all
   scripts/install.sh [--dry-run] codex|claude|agents|all
   scripts/install.sh [--dry-run] --dest /path/to/skills/arc-memecoin-intel
 
@@ -20,7 +36,10 @@ Targets:
   agents  -> ${AGENTS_HOME:-$HOME/.agents}/skills/arc-memecoin-intel
   all     -> codex, claude, and agents
 
+Default target (no args): claude
+
 Environment overrides:
+  ARC_MEMES_REF  branch/tag to install when piped from curl (default: main)
   CODEX_HOME   default: $HOME/.codex
   CLAUDE_HOME  default: $HOME/.claude
   AGENTS_HOME  default: $HOME/.agents
@@ -69,7 +88,7 @@ if [[ -n "$CUSTOM_DEST" && ${#TARGETS[@]} -gt 0 ]]; then
 fi
 
 if [[ -z "$CUSTOM_DEST" && ${#TARGETS[@]} -eq 0 ]]; then
-  TARGETS=("codex")
+  TARGETS=("claude")
 fi
 
 expand_targets() {
@@ -111,6 +130,7 @@ install_to() {
 
   mkdir -p "$dest"
   cp -R "$SOURCE_DIR"/. "$dest"/
+  chmod +x "$dest/scripts/arc_scan.py" 2>/dev/null || true
   echo "Installed $SKILL_NAME -> $dest"
 }
 
@@ -127,3 +147,8 @@ done < <(expand_targets "${TARGETS[@]}" | awk '!seen[$0]++')
 for target in "${RESOLVED_TARGETS[@]}"; do
   install_to "$(target_dest "$target")"
 done
+
+if ! command -v python3 >/dev/null; then
+  echo "Note: the scanner needs Python 3 (preinstalled on macOS/Linux). Install it from python.org if missing." >&2
+fi
+[[ "$DRY_RUN" -eq 1 ]] || echo "Done. Restart your agent, then ask: \"use arc-memecoin-intel to scan 0x...\""
