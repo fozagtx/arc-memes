@@ -12,6 +12,7 @@ required_files=(
   "references/scoring.md"
   "references/report-template.md"
   "references/suite-blueprint.md"
+  "labels.example.json"
 )
 
 missing=0

@@ -5,9 +5,10 @@ Stdlib only. Talks to an Arc JSON-RPC endpoint and, optionally, a Blockscout
 explorer API (Arcscan) for wallet funding origins.
 
 Subcommands:
-  discover   find new pools/pairs created in recent blocks
-  scan       full forensic scan of one token (holders, bundles, risk score)
+  discover   find new pools (and, with --mints, launchpad tokens); --scan N ranks them
+  scan       full forensic scan of one token (holders, bundles, LP, risk score)
   wallet     trace who funded a wallet and its first activity
+  watch      follow new blocks and scan every new pool as it appears
 
 Every number this tool prints is derived from chain data it fetched; when a
 signal could not be computed it says so instead of guessing.
@@ -50,6 +51,23 @@ RISKY_SELECTORS = {
     "8456cb59": "pause()",
     "f2fde38b": "transferOwnership(address)",
 }
+
+
+def load_labels(path: str | None) -> dict[str, str]:
+    """{address: label} from a JSON file. Labels starting with cex/bridge/router/locker are
+    treated as shared infrastructure: never merged into funder clusters."""
+    if not path:
+        return {}
+    with open(path) as f:
+        raw = json.load(f)
+    return {k.lower(): str(v) for k, v in raw.items() if not k.startswith("_")}
+
+
+INFRA_PREFIXES = ("cex", "bridge", "router", "locker", "launchpad")
+
+
+def is_infra(addr: str | None, labels: dict[str, str]) -> bool:
+    return bool(addr) and labels.get(addr, "").lower().startswith(INFRA_PREFIXES)
 
 
 # --------------------------------------------------------------------------
@@ -288,12 +306,21 @@ def analyze(transfers: list[Transfer], pools: set[str], deployer: str | None,
     )
 
 
-def cluster_by_funder(funders: dict[str, str | None], min_size: int = 2) -> dict[str, list[str]]:
+def cluster_by_funder(funders: dict[str, str | None], min_size: int = 2,
+                      labels: dict[str, str] | None = None) -> dict[str, list[str]]:
     groups = defaultdict(list)
     for w, f in funders.items():
-        if f:
+        if f and not is_infra(f, labels or {}):
             groups[f].append(w)
     return {f: sorted(ws) for f, ws in groups.items() if len(ws) >= min_size}
+
+
+def sell_through(transfers: list[Transfer], wallets: set[str], balances: dict[str, int]) -> dict:
+    """How much of what `wallets` ever received they have since moved out."""
+    received = sum(t.value for t in transfers if t.to in wallets)
+    held = sum(balances.get(w, 0) for w in wallets)
+    sold = max(0, received - held)
+    return {"received": received, "held": held, "sold_pct": pct(sold, received)}
 
 
 def pct(part: int, whole: int) -> float:
@@ -343,6 +370,12 @@ def score(ctx: dict) -> tuple[int, str, list[str]]:
         add(6, f"{int(ctx['fresh_wallet_ratio'] * 100)}% of early buyers are fresh wallets")
     if not ctx.get("pools"):
         add(5, "no liquidity pool detected (can't verify tradability)")
+    lp = ctx.get("lp_burned_pct")
+    if lp is not None and lp < 50 and not ctx.get("lp_locked_known"):
+        add(8, f"only {lp}% of LP tokens burned and no known locker holds them (liquidity can be pulled)")
+    sold = ctx.get("bundle_sold_pct")
+    if sold is not None and 20 <= sold < 90 and ctx.get("bundled_supply_pct", 0) > 0:
+        add(6, f"bundle wallets have sold {sold}% and are still holding the rest (active distribution)")
 
     s = min(100, s)
     label = "CRITICAL" if s >= 70 else "HIGH" if s >= 45 else "ELEVATED" if s >= 25 else "LOW"
@@ -403,8 +436,30 @@ def detect_pools(rpc: RPC, token: str, candidates: set[str]) -> set[str]:
     return pools
 
 
+def lp_status(rpc: RPC, pool: str, labels: dict[str, str]) -> dict | None:
+    """For a V2-style pair (the pool is itself an ERC-20 LP token): share of LP burned / held by
+    labelled lockers. V3 positions are NFTs, so this returns None for them."""
+    lp_supply = dec_uint(rpc.eth_call(pool, SEL["totalSupply"]))
+    if not lp_supply:
+        return None
+    head = rpc.block_number()
+    try:
+        raw = rpc.logs(max(0, head - 2_000_000), head, address=pool, topics=[TRANSFER])
+    except RPCError:
+        return None
+    bal = build_balances([t for t in (Transfer.from_log(lg) for lg in raw) if t])
+    # Uniswap V2 permanently locks MINIMUM_LIQUIDITY at address(0); count all of zero/dead as burned.
+    minted = sum(t for t in bal.values())
+    burned = sum(bal.get(a, 0) for a in BURN_ADDRS)
+    locked = {a: v for a, v in bal.items() if labels.get(a, "").lower().startswith("locker")}
+    top = sorted(((a, v) for a, v in bal.items() if a not in BURN_ADDRS), key=lambda x: -x[1])[:3]
+    return {"pool": pool, "burned_pct": pct(burned, minted), "locked_pct": pct(sum(locked.values()), minted),
+            "top_lp_holders": [{"address": a, "pct": pct(v, minted), "label": labels.get(a)} for a, v in top]}
+
+
 def cmd_scan(args) -> dict:
     rpc, explorer = RPC(args.rpc), Explorer(None if args.no_explorer else args.explorer)
+    labels = load_labels(getattr(args, "labels", None))
     token = args.token.lower()
     head = rpc.block_number()
     meta = token_meta(rpc, token)
@@ -438,7 +493,7 @@ def cmd_scan(args) -> dict:
     if explorer.base and early_wallets:
         for w in early_wallets[: args.max_trace]:
             funders[w] = explorer.funder(w)
-    funder_clusters = cluster_by_funder(funders)
+    funder_clusters = cluster_by_funder(funders, labels=labels)
 
     fresh = 0
     for w in early_wallets[: args.max_trace]:
@@ -460,6 +515,10 @@ def cmd_scan(args) -> dict:
         bundled.update(w for w in a.deployer_seeded if w in a.balances)
     bundled -= excluded
     bundled_now = sum(a.balances.get(w, 0) for w in bundled)
+    bundle_flow = sell_through(transfers, bundled, a.balances) if bundled else None
+
+    lp = [x for x in (lp_status(rpc, pl, labels) for pl in sorted(a.pools)) if x]
+    best_lp = max(lp, key=lambda x: x["burned_pct"] + x["locked_pct"]) if lp else None
 
     ctx = {
         "pools": sorted(a.pools),
@@ -475,6 +534,9 @@ def cmd_scan(args) -> dict:
         "pause_fn": meta["pause_fn"],
         "ownership_renounced": meta["ownership_renounced"],
         "fresh_wallet_ratio": round(fresh / traced, 2) if traced else 0,
+        "bundle_sold_pct": bundle_flow["sold_pct"] if bundle_flow else None,
+        "lp_burned_pct": best_lp["burned_pct"] if best_lp else None,
+        "lp_locked_known": bool(best_lp and best_lp["locked_pct"] >= 50),
     }
     risk, label, reasons = score(ctx)
     dec = meta["decimals"] or 0
@@ -497,25 +559,24 @@ def cmd_scan(args) -> dict:
             "bundled_wallets": sorted(bundled),
             "early_buyers": len(early_wallets),
             "funders_traced": len(funders),
+            "sell_through": bundle_flow,
+            "funders_labelled": {f: labels[f] for f in set(funders.values()) if f in labels},
         },
+        "liquidity": lp,
         "signals": ctx,
         "risk": {"score": risk, "label": label, "reasons": reasons},
         "not_computed": [n for n, ok in [
             ("funder clustering (explorer unavailable)", bool(funders)),
             ("pool detection (no AMM pool found)", bool(a.pools)),
             ("full history (window truncated by --blocks)", to_block == head),
+            ("LP burn/lock (no V2-style LP token found)", bool(lp) or not a.pools),
         ] if not ok],
     }
 
 
-def cmd_discover(args) -> dict:
-    rpc = RPC(args.rpc)
-    head = rpc.block_number()
-    start = max(0, head - args.blocks)
-    logs = rpc.logs(start, head, topics=[[V2_PAIR_CREATED, V3_POOL_CREATED]])
-    quote = {q.lower() for q in args.quote} if args.quote else set()
+def pools_in_range(rpc: RPC, start: int, end: int, quote: set[str]) -> list[dict]:
     rows = []
-    for lg in logs:
+    for lg in rpc.logs(start, end, topics=[[V2_PAIR_CREATED, V3_POOL_CREATED]]):
         t = lg["topics"]
         t0, t1 = topic_addr(t[1]), topic_addr(t[2])
         data = lg["data"][2:]
@@ -526,13 +587,99 @@ def cmd_discover(args) -> dict:
         base = t1 if t0 in quote else t0 if t1 in quote else None
         if quote and base is None:
             continue
-        candidates = [base] if base else [t0, t1]
-        for tok in candidates:
+        for tok in ([base] if base else [t0, t1]):
             rows.append({"block": int(lg["blockNumber"], 16), "factory": lg["address"].lower(), "kind": kind,
                          "pool": pool.lower(), "token": tok, "paired_with": t1 if tok == t0 else t0,
-                         "symbol": dec_string(rpc.eth_call(tok, SEL["symbol"]))})
+                         "source": "pool"})
+    return rows
+
+
+def mints_in_range(rpc: RPC, start: int, end: int, known: set[str]) -> list[dict]:
+    """Tokens whose first-ever mint (Transfer from 0x0) lands in range: catches launchpad /
+    bonding-curve tokens that never emit a standard PairCreated."""
+    seen, rows = set(known), []
+    for lg in rpc.logs(start, end, topics=[TRANSFER, pad_addr(ZERO)]):
+        tok = lg["address"].lower()
+        if tok in seen or len(lg.get("topics") or []) != 3:
+            continue
+        seen.add(tok)
+        blk = int(lg["blockNumber"], 16)
+        try:  # only genuinely new contracts: skip tokens that already had code before the window
+            if blk > 1 and rpc.code(tok, hex(max(0, start - 1))) not in ("0x", "0x0"):
+                continue
+        except RPCError:
+            pass
+        rows.append({"block": blk, "factory": None, "kind": "mint", "pool": None, "token": tok,
+                     "paired_with": None, "source": "mint"})
+    return rows
+
+
+def rank(args, rows: list[dict]) -> list[dict]:
+    """Quick-scan the newest N distinct tokens and attach risk. Lower risk sorts first."""
+    out, done = [], set()
+    for r in rows:
+        if len(done) >= args.scan or r["token"] in done:
+            continue
+        done.add(r["token"])
+        ns = argparse.Namespace(rpc=args.rpc, explorer=args.explorer, token=r["token"],
+                                pool=[r["pool"]] if r["pool"] else None, deployer=None, blocks=None,
+                                early_window=5, min_cluster=3, max_trace=args.max_trace,
+                                no_explorer=args.no_explorer, labels=args.labels)
+        try:
+            res = cmd_scan(ns)
+            out.append({**r, "symbol": res["token"]["symbol"], "score": res["risk"]["score"],
+                        "label": res["risk"]["label"], "bundled_pct": res["signals"]["bundled_supply_pct"],
+                        "top10_pct": res["signals"]["top10_pct"],
+                        "note": (res["risk"]["reasons"] or ["no red flags visible"])[0]})
+        except (RPCError, SystemExit) as e:
+            out.append({**r, "score": None, "label": "ERROR", "note": str(e)[:120]})
+    return sorted(out, key=lambda x: (x["score"] is None, x["score"] or 0))
+
+
+def cmd_discover(args) -> dict:
+    rpc = RPC(args.rpc)
+    head = rpc.block_number()
+    start = max(0, head - args.blocks)
+    quote = {q.lower() for q in args.quote} if args.quote else set()
+    rows = pools_in_range(rpc, start, head, quote)
+    if args.mints:
+        rows += mints_in_range(rpc, start, head, {r["token"] for r in rows} | quote)
     rows.sort(key=lambda r: -r["block"])
-    return {"head_block": head, "from_block": start, "new_pools": rows[: args.limit]}
+    rows = rows[: args.limit]
+    for r in rows:
+        r["symbol"] = dec_string(rpc.eth_call(r["token"], SEL["symbol"]))
+    out = {"head_block": head, "from_block": start, "new_pools": rows}
+    if args.scan:
+        out["ranked"] = rank(args, rows)
+    return out
+
+
+def cmd_watch(args) -> int:
+    """Poll for new blocks; scan each new pool/token once and print a one-line alert."""
+    rpc = RPC(args.rpc)
+    quote = {q.lower() for q in args.quote} if args.quote else set()
+    last, seen = rpc.block_number(), set()
+    print(f"watching Arc from block {last} (poll {args.interval}s, Ctrl-C to stop)", file=sys.stderr)
+    try:
+        while True:
+            time.sleep(args.interval)
+            head = rpc.block_number()
+            if head <= last:
+                continue
+            rows = pools_in_range(rpc, last + 1, head, quote)
+            if args.mints:
+                rows += mints_in_range(rpc, last + 1, head, {r["token"] for r in rows} | quote | seen)
+            last = head
+            fresh = [r for r in rows if r["token"] not in seen]
+            seen.update(r["token"] for r in fresh)
+            for r in rank(argparse.Namespace(**{**vars(args), "scan": len(fresh)}), fresh):
+                line = {"block": r["block"], "token": r["token"], "symbol": r.get("symbol"),
+                        "label": r["label"], "score": r["score"], "note": r["note"]}
+                print(json.dumps(line) if args.format == "json" else
+                      f"[{r['block']}] {r.get('symbol') or '?':<10} {r['token']}  {r['label']:<8} "
+                      f"{r['score'] if r['score'] is not None else '-':>3}  {r['note']}", flush=True)
+    except KeyboardInterrupt:
+        return 0
 
 
 def cmd_wallet(args) -> dict:
@@ -559,12 +706,16 @@ def render_scan_md(r: dict) -> str:
           f"- Coordinated launch blocks: {len(b['same_block_groups'])}",
           f"- Shared-funder clusters: {len(b['funder_clusters'])} (traced {b['funders_traced']} of {b['early_buyers']} early buyers)",
           f"- Deployer pre-distribution: {s['deployer_seeded_pct']}% · deployer still holds {s['deployer_holds_pct']}%"]
+    if b.get("sell_through"):
+        L.append(f"- Bundle sell-through: sold {b['sell_through']['sold_pct']}% of what they received")
     for f, ws in list(b["funder_clusters"].items())[:5]:
         L.append(f"  - funder {link(f)} → {len(ws)} wallets")
     L += ["", "## Contract",
           f"- Owner: {t['owner'] or 'none/unknown'} (renounced: {t['ownership_renounced']})",
           f"- Flagged functions: {', '.join(t['flagged_selectors']) or 'none'}",
           f"- Pools: {', '.join(s['pools']) or 'none detected'}",
+          *[f"- LP `{x['pool'][:10]}…`: {x['burned_pct']}% burned, {x['locked_pct']}% in labelled lockers"
+            for x in r.get("liquidity") or []],
           "", "## Top holders (ex-pools/burn)", "", "| # | Wallet | % | Bundled |", "|---|---|---|---|"]
     for i, h in enumerate(r["top_holders"][:10], 1):
         L.append(f"| {i} | {link(h['address'])} | {h['pct']} | {'⚠️' if h['bundled'] else ''} |")
@@ -579,9 +730,15 @@ def render_discover_md(r: dict) -> str:
     L = [f"# New pools on Arc (blocks {r['from_block']}–{r['head_block']})", "",
          "| Block | Token | Symbol | Pool | Type |", "|---|---|---|---|---|"]
     for x in r["new_pools"]:
-        L.append(f"| {x['block']} | `{x['token']}` | {x['symbol'] or '?'} | `{x['pool']}` | {x['kind']} |")
+        L.append(f"| {x['block']} | `{x['token']}` | {x['symbol'] or '?'} | `{x['pool'] or '-'}` | {x['kind']} |")
     if not r["new_pools"]:
         L.append("| — | none found | | | |")
+    if r.get("ranked"):
+        L += ["", "## Ranked (lowest risk first)", "",
+              "| Token | Symbol | Score | Label | Bundled % | Top10 % | Note |", "|---|---|---|---|---|---|---|"]
+        for x in r["ranked"]:
+            L.append(f"| `{x['token']}` | {x.get('symbol') or '?'} | {x['score'] if x['score'] is not None else '-'} "
+                     f"| {x['label']} | {x.get('bundled_pct', '-')} | {x.get('top10_pct', '-')} | {x['note']} |")
     return "\n".join(L)
 
 
@@ -590,12 +747,25 @@ def main(argv=None):
     p.add_argument("--rpc", default=DEFAULT_RPC)
     p.add_argument("--explorer", default=DEFAULT_EXPLORER)
     p.add_argument("--format", choices=["md", "json"], default="md")
+    p.add_argument("--labels", default=os.environ.get("ARC_LABELS"),
+                   help="JSON {address: label}; cex/bridge/router/locker labels are not clustered")
     sub = p.add_subparsers(dest="cmd", required=True)
 
     d = sub.add_parser("discover", help="list pools created in recent blocks")
     d.add_argument("--blocks", type=int, default=20_000)
     d.add_argument("--limit", type=int, default=50)
     d.add_argument("--quote", nargs="*", help="quote token addresses (e.g. USDC, WUSDC) to orient pairs")
+    d.add_argument("--mints", action="store_true", help="also find new tokens by first mint (launchpads)")
+    d.add_argument("--scan", type=int, default=0, help="quick-scan and rank the newest N tokens")
+    d.add_argument("--max-trace", type=int, default=15)
+    d.add_argument("--no-explorer", action="store_true")
+
+    wa = sub.add_parser("watch", help="follow new blocks and scan new pools live")
+    wa.add_argument("--interval", type=float, default=5.0)
+    wa.add_argument("--quote", nargs="*")
+    wa.add_argument("--mints", action="store_true")
+    wa.add_argument("--max-trace", type=int, default=10)
+    wa.add_argument("--no-explorer", action="store_true")
 
     s = sub.add_parser("scan", help="forensic scan of one token")
     s.add_argument("token")
@@ -611,6 +781,12 @@ def main(argv=None):
     w.add_argument("address")
 
     args = p.parse_args(argv)
+    if args.cmd == "watch":
+        try:
+            return cmd_watch(args)
+        except RPCError as e:
+            print(f"error: {e}", file=sys.stderr)
+            return 1
     try:
         result = {"discover": cmd_discover, "scan": cmd_scan, "wallet": cmd_wallet}[args.cmd](args)
     except RPCError as e:

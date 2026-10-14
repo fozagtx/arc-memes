@@ -15,6 +15,8 @@ Implemented in `score()` in `scripts/arc_scan.py`. The points add up and the tot
 | Deployer still holds ≥5% | 8 |
 | `pause()` present, owner not renounced | 6 |
 | ≥50% of traced early buyers are fresh wallets | 6 |
+| <50% of V2 LP burned and no labelled locker holds it | 8 |
+| Bundle actively distributing (sold 20–90%, still holding some) | 6 |
 | Single holder ≥3.5% | 5 |
 | No liquidity pool detected | 5 |
 

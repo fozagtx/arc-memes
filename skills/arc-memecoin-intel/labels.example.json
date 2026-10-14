@@ -1,0 +1,3 @@
+{
+  "_comment": "Copy to labels.json and fill in addresses you have verified on Arcscan. Labels starting with cex, bridge, router, locker or launchpad are treated as shared infrastructure: wallets they fund are not clustered together, and LP held by a 'locker...' label counts as locked. Example shape: \"0xabc...\": \"cex:ExchangeName hot wallet\"."
+}

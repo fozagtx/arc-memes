@@ -22,7 +22,8 @@ This is educational tooling only. It is not financial advice.
 
 ```bash
 cd skills/arc-memecoin-intel
-python3 scripts/arc_scan.py discover --blocks 20000
+python3 scripts/arc_scan.py discover --mints --scan 5
+python3 scripts/arc_scan.py watch --mints
 python3 scripts/arc_scan.py scan 0xTOKEN
 python3 scripts/arc_scan.py --format json scan 0xTOKEN
 python3 scripts/arc_scan.py wallet 0xWALLET

@@ -11,6 +11,8 @@ proves a bundle, so the scanner stacks them.
 | `funder_clusters` | early buyers whose first USDC came from the same address | Strong | CEX hot wallets and bridges fund thousands of unrelated users. **If the funder is a known exchange or bridge, discount it** |
 | `deployer_seeded` | tokens sent from the mint/deployer to wallets other than the pool | Medium–strong | disclosed team/marketing/vesting wallets, airdrops; ask whether it was disclosed |
 | `fresh_wallet_ratio` | share of traced early buyers with nonce ≤ 3 | Supporting | new users onboarding to Arc. On a young chain many real users are fresh |
+| `sell_through.sold_pct` | (received − still held) / received, across all flagged wallets | Tells you the bundle's *phase*: holding, distributing, or exited | wallets that moved tokens to their own second wallet show as "sold" |
+| `liquidity[].burned_pct` / `locked_pct` | V2 LP-token balances at 0x0/0xdead, or at `locker…`-labelled addresses | Rug-pull exposure | lockers you haven't labelled show as unlocked; check the top LP holder |
 | `top10_pct`, `max_holder_pct` | current balances excluding pools, burn, and the token contract | Context | CEX or locker contracts holding for many users; check what the address is |
 
 **The number that matters most is `bundled_supply_pct`.** It's what the flagged wallets hold
@@ -29,4 +31,4 @@ bot candles, or volume is far out of line with market cap.
 1. Open the `shared_tx_groups` tx on Arcscan. Is the `to` a known router or a custom contract?
 2. For each funder cluster, run `wallet <funder>`. Is the funder itself funded by the deployer?
 3. Compare the bundled wallets' sells with the chart. Did they sell into retail candles?
-4. Check whether the LP tokens are locked or burned (look at who holds the pool's LP token).
+4. If `liquidity` shows low burn/lock, open the top LP holder. If it's a locker contract, verify its unlock date and add it to your labels file.

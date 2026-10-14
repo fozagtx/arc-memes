@@ -23,7 +23,8 @@ Arc-specific advice.
 | User says | Do |
 |---|---|
 | a token address (`0x…`) / "scan", "rug check", "is this bundled" | **Scan workflow** below |
-| "find new coins", "what launched", "discover" | `discover`, then scan the top candidates |
+| "find new coins", "what launched", "discover" | `discover --mints --scan 5` (finds and ranks in one go) |
+| "watch launches", "alert me", "live" | `watch --mints` (scans every new pool as it lands) |
 | a wallet address / "who funded this", "is this a sniper" | `wallet`, then explain the funding trail |
 | a concept ("bundling", "vamping", "sizing") | answer from references + Spyzer frameworks |
 | "build a suite", "dashboard", "track over time" | [references/suite-blueprint.md](references/suite-blueprint.md) |
@@ -36,6 +37,8 @@ Arc-specific advice.
 python3 scripts/arc_scan.py scan 0xTOKEN                 # markdown report
 python3 scripts/arc_scan.py --format json scan 0xTOKEN   # machine-readable, use for reasoning
 python3 scripts/arc_scan.py discover --blocks 20000      # new V2/V3 pools in recent blocks
+python3 scripts/arc_scan.py discover --mints --scan 5    # + launchpad tokens, ranked by risk
+python3 scripts/arc_scan.py watch --mints                # live: scan each new pool as it appears
 python3 scripts/arc_scan.py wallet 0xWALLET              # funder + first activity
 ```
 
@@ -44,6 +47,10 @@ Network config: `--rpc` / `ARC_RPC_URL` (defaults to Arc testnet), `--explorer` 
 private node, set both. Useful `scan` flags: `--pool` (skip pool auto-detection),
 `--deployer`, `--early-window N` (launch window in blocks, default 5), `--min-cluster N`,
 `--max-trace N` (how many early buyers to trace funders for), `--blocks N` (cap history).
+`--labels labels.json` (or `ARC_LABELS`) loads address labels you've verified (copy
+`labels.example.json`). Funders labelled `cex…`/`bridge…`/`router…` are never clustered, and LP
+held by a `locker…` label counts as locked. Never invent labels: only add addresses you
+verified on Arcscan.
 
 If the scanner can't reach the network, say so, show the exact command you ran, and ask for
 an RPC URL. **Never make up chain data.**
@@ -58,15 +65,20 @@ an RPC URL. **Never make up chain data.**
    - `funder_clusters`: early buyers whose first USDC came from the same address.
    - `deployer_seeded`: wallets the deployer or mint sent tokens to before or outside the pool.
    - `bundled_supply_pct`: what those clustered wallets **still hold now**. This is the real dump risk.
+   - `bundles.sell_through.sold_pct`: how much of what the bundle received it has already sold. Near 0 means a full overhang. 20–90 means it's selling right now. ≥90 means it already dumped and is mostly history.
 3. **Concentration.** Look at `top10_pct` and `max_holder_pct` (pools and burn excluded). In fresh trenches, any one wallet over ~3.5% is a single-sell risk (Spyzer rule).
-4. **Contract.** A live `mint()` or `pause()` with an owner that hasn't renounced means the supply or trading can still be changed. A missing pool means you can't confirm the token is tradable.
+4. **Contract & liquidity.** A live `mint()` or `pause()` with an owner that hasn't renounced means the supply or trading can still be changed. `liquidity[].burned_pct` / `locked_pct` show whether the V2 LP can be pulled. If neither is at least 50%, the deployer can rug the pool. V3 positions are NFTs and aren't checked, so say so. A missing pool means you can't confirm the token is tradable.
 5. **Judge the intent.** Bundling is supply control. It isn't automatically a scam. Bundles that are getting smaller over time, are disclosed, or are locked read differently from fresh-wallet clusters that are still full. Check the chart and the wallets' current behavior if you can.
 6. **Score.** The scanner's `risk.score` and `risk.label` come from fixed weights ([references/scoring.md](references/scoring.md)). You can move the verdict **one band** with a stated reason (for example, "bundle wallets already sold 90%, so the overhang is gone"). Never move it silently.
 7. **Report** using [references/report-template.md](references/report-template.md): verdict first, then the evidence with explorer links, what wasn't checked, and what would change the call.
 
-For `discover`: pass `--quote <USDC/WUSDC addresses>` so pairs show the meme token. Then
-run a quick `scan --max-trace 15` on the newest 3–5 and rank them by risk. A low risk score
-means fewer red flags, not a reason to buy.
+For `discover`: pass `--quote <USDC/WUSDC addresses>` so pairs show the meme token, `--mints`
+to also catch launchpad/bonding-curve tokens that never emit `PairCreated`, and `--scan N` to
+quick-scan the newest N and get a ranked table. Do a full `scan` on any token you'll actually
+recommend. A low risk score means fewer red flags, not a reason to buy.
+
+For `watch`: it runs until stopped and prints one line per new token (`--format json` gives
+JSONL for piping into a bot). Run it in the background and summarise the alerts for the user.
 
 ## Frameworks to apply (from Spyzer's guide)
 
@@ -83,7 +95,7 @@ means fewer red flags, not a reason to buy.
 - [references/scoring.md](references/scoring.md): risk weights and bands
 - [references/report-template.md](references/report-template.md): output format
 - [references/suite-blueprint.md](references/suite-blueprint.md): how to grow this into a full intelligence suite
-- `scripts/arc_scan.py`: scanner
+- `scripts/arc_scan.py`: scanner · `labels.example.json`: label file format
 
 ## Limits
 

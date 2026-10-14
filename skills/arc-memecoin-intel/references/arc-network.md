@@ -31,4 +31,5 @@ pruned node the scanner falls back to the last 50k blocks and reports the histor
 - **Young ecosystem.** DEX factories, launchpads, and lockers are still settling. Don't assume a
   specific DEX. `discover` listens for the standard Uniswap V2 `PairCreated` and V3
   `PoolCreated` events from *any* factory. A custom launchpad that uses bonding curves and
-  emits other events won't show up. Scan those tokens directly by address.
+  emits other events won't show up as pools. `discover --mints` / `watch --mints` catches them
+by their first mint `Transfer` from 0x0 instead. You can also scan them directly by address.

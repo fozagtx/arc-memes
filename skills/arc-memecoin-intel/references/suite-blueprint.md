@@ -1,6 +1,6 @@
 # Growing this into a full Arc memecoin intelligence suite
 
-The skill today is a **single-shot scanner and analyst**. Here's the recommended way to grow
+The skill today is a **scanner, ranker, live watcher (`watch`), and analyst**, working straight off RPC. Here's the recommended way to grow
 it into a full research suite, in build order. Each layer is useful on its own.
 
 ## 1. Indexer (data foundation)
