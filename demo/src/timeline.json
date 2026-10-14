@@ -1,0 +1,47 @@
+[
+ {
+  "id": "s1_arc",
+  "from": 0,
+  "frames": 275
+ },
+ {
+  "id": "s2_sam",
+  "from": 275,
+  "frames": 230
+ },
+ {
+  "id": "s3_hidden",
+  "from": 504,
+  "frames": 300
+ },
+ {
+  "id": "s4_rug",
+  "from": 804,
+  "frames": 218
+ },
+ {
+  "id": "s5_problem",
+  "from": 1022,
+  "frames": 307
+ },
+ {
+  "id": "s6_install",
+  "from": 1329,
+  "frames": 236
+ },
+ {
+  "id": "s7_scan",
+  "from": 1565,
+  "frames": 418
+ },
+ {
+  "id": "s8_save",
+  "from": 1982,
+  "frames": 245
+ },
+ {
+  "id": "s9_cta",
+  "from": 2227,
+  "frames": 173
+ }
+]

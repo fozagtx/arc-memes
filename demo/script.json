@@ -1,0 +1,11 @@
+[
+ {"id": "s1_arc", "vo": "This is Arc. Circle's new chain. Every day, fresh memecoins launch here, and everyone wants a piece of the Arc economy."},
+ {"id": "s2_sam", "vo": "Meet Sam. Sam spots a new coin, up sixty nine percent, and apes in five hundred dollars."},
+ {"id": "s3_hidden", "vo": "What Sam can't see: three wallets bought in the very first block. All funded by the same address. Together, they hold a third of the supply."},
+ {"id": "s4_rug", "vo": "Twelve minutes later, they sell. Five hundred dollars, gone. Sam just got bundled."},
+ {"id": "s5_problem", "vo": "This happens every single day. Bundled launches. No community. No trust. New people come to build on Arc, and get drained instead."},
+ {"id": "s6_install", "vo": "So we built Arc Memecoin Intel. One command adds it to Claude Code, Codex, or any agent."},
+ {"id": "s7_scan", "vo": "Paste a contract address. It reads the chain and shows you everything before you spend a cent: bundled wallets, shared funders, who holds the supply, whether liquidity can be pulled, and a clear risk score."},
+ {"id": "s8_save", "vo": "This time, Sam scans first. Critical risk. Sam walks away, five hundred dollars still in the wallet."},
+ {"id": "s9_cta", "vo": "Arc Memecoin Intel. Know where your money goes, before it goes."}
+]

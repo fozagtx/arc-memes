@@ -11,7 +11,17 @@ This is educational tooling only. It is not financial advice.
 - `skills/arc-memecoin-intel/references/`: Arc network notes, bundle signals, scoring, the report template, and the full-suite blueprint
 - `scripts/install.sh` / `scripts/verify.sh`: install into Claude, Codex, or generic agent skill folders
 
+## Demo
+
+[`demo/arc-memecoin-intel-demo.mp4`](demo/arc-memecoin-intel-demo.mp4): a 1:20 walkthrough.
+
 ## Install (one line)
+
+```bash
+npx skills add fozagtx/arc-memes
+```
+
+Or without Node:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/fozagtx/arc-memes/main/scripts/install.sh | bash
