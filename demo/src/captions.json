@@ -2,1253 +2,1288 @@
 {
 "text": "This",
 "startMs": 300,
-"endMs": 652,
+"endMs": 635,
 "timestampMs": null,
 "confidence": null
 },
 {
 "text": " is",
-"startMs": 652,
-"endMs": 864,
+"startMs": 635,
+"endMs": 836,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " Arc.",
-"startMs": 864,
-"endMs": 1216,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Circle's",
-"startMs": 1336,
-"endMs": 1833,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " new",
-"startMs": 1833,
-"endMs": 2054,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " chain.",
-"startMs": 2054,
-"endMs": 2441,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Every",
-"startMs": 2561,
-"endMs": 2931,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " day,",
-"startMs": 2931,
-"endMs": 3240,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " fresh",
-"startMs": 3360,
-"endMs": 3670,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " memecoins",
-"startMs": 3670,
-"endMs": 4187,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " launch",
-"startMs": 4187,
-"endMs": 4549,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " here,",
-"startMs": 4549,
-"endMs": 4860,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " and",
-"startMs": 4980,
-"endMs": 5199,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " everyone",
-"startMs": 5199,
-"endMs": 5691,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " wants",
-"startMs": 5691,
-"endMs": 6020,
+"text": " Argus,",
+"startMs": 836,
+"endMs": 1305,
 "timestampMs": null,
 "confidence": null
 },
 {
 "text": " a",
-"startMs": 6020,
-"endMs": 6130,
+"startMs": 1425,
+"endMs": 1545,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " piece",
-"startMs": 6130,
-"endMs": 6458,
+"text": " memecoin",
+"startMs": 1545,
+"endMs": 2088,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " of",
-"startMs": 6458,
-"endMs": 6623,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " the",
-"startMs": 6623,
-"endMs": 6842,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Arc",
-"startMs": 6842,
-"endMs": 7061,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " economy.",
-"startMs": 7061,
-"endMs": 7554,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Meet",
-"startMs": 9454,
-"endMs": 9842,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Sam.",
-"startMs": 9842,
-"endMs": 10230,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Sam",
-"startMs": 10350,
-"endMs": 10600,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " spots",
-"startMs": 10600,
-"endMs": 10975,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " a",
-"startMs": 10975,
-"endMs": 11100,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " new",
-"startMs": 11100,
-"endMs": 11350,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " coin,",
-"startMs": 11350,
-"endMs": 11725,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " up",
-"startMs": 11845,
-"endMs": 12023,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " sixty",
-"startMs": 12023,
-"endMs": 12380,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " nine",
-"startMs": 12380,
-"endMs": 12678,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " percent,",
-"startMs": 12678,
-"endMs": 13213,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " and",
-"startMs": 13333,
-"endMs": 13554,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " apes",
-"startMs": 13554,
-"endMs": 13829,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " in",
-"startMs": 13829,
-"endMs": 13994,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " five",
-"startMs": 13994,
-"endMs": 14270,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " hundred",
-"startMs": 14270,
-"endMs": 14711,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " dollars.",
-"startMs": 14711,
-"endMs": 15206,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " What",
-"startMs": 17107,
-"endMs": 17404,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Sam",
-"startMs": 17404,
-"endMs": 17641,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " can't",
-"startMs": 17641,
-"endMs": 17997,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " see:",
-"startMs": 17997,
-"endMs": 18294,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " three",
-"startMs": 18414,
-"endMs": 18721,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " wallets",
-"startMs": 18721,
-"endMs": 19130,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " bought",
-"startMs": 19130,
-"endMs": 19488,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " in",
-"startMs": 19488,
-"endMs": 19641,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " the",
-"startMs": 19641,
-"endMs": 19846,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " very",
-"startMs": 19846,
-"endMs": 20102,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " first",
-"startMs": 20102,
-"endMs": 20408,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " block.",
-"startMs": 20408,
-"endMs": 20766,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " All",
-"startMs": 20886,
-"endMs": 21105,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " funded",
-"startMs": 21105,
-"endMs": 21489,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " by",
-"startMs": 21489,
-"endMs": 21653,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " the",
-"startMs": 21653,
-"endMs": 21872,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " same",
-"startMs": 21872,
-"endMs": 22146,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " address.",
-"startMs": 22146,
-"endMs": 22639,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Together,",
-"startMs": 22759,
-"endMs": 23382,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " they",
-"startMs": 23502,
-"endMs": 23759,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " hold",
-"startMs": 23759,
-"endMs": 24015,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " a",
-"startMs": 24015,
-"endMs": 24118,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " third",
-"startMs": 24118,
-"endMs": 24426,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " of",
-"startMs": 24426,
-"endMs": 24579,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " the",
-"startMs": 24579,
-"endMs": 24785,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " supply.",
-"startMs": 24785,
-"endMs": 25195,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Twelve",
-"startMs": 27096,
-"endMs": 27442,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " minutes",
-"startMs": 27442,
-"endMs": 27837,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " later,",
-"startMs": 27837,
-"endMs": 28183,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " they",
-"startMs": 28303,
-"endMs": 28611,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " sell.",
-"startMs": 28611,
-"endMs": 28980,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Five",
-"startMs": 29100,
-"endMs": 29382,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " hundred",
-"startMs": 29382,
-"endMs": 29835,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " dollars,",
-"startMs": 29835,
-"endMs": 30344,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " gone.",
-"startMs": 30464,
-"endMs": 30964,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Sam",
-"startMs": 31084,
-"endMs": 31335,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " just",
-"startMs": 31335,
-"endMs": 31648,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " got",
-"startMs": 31648,
-"endMs": 31898,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " bundled.",
-"startMs": 31898,
-"endMs": 32461,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " This",
-"startMs": 34362,
-"endMs": 34656,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " happens",
-"startMs": 34656,
-"endMs": 35127,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " every",
-"startMs": 35127,
-"endMs": 35480,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " single",
-"startMs": 35480,
-"endMs": 35892,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " day.",
-"startMs": 35892,
-"endMs": 36186,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Bundled",
-"startMs": 36306,
-"endMs": 36804,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " launches.",
-"startMs": 36804,
-"endMs": 37427,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " No",
-"startMs": 37547,
-"endMs": 37740,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " community.",
-"startMs": 37740,
-"endMs": 38446,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " No",
-"startMs": 38566,
-"endMs": 38815,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " trust.",
-"startMs": 38815,
-"endMs": 39394,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " New",
-"startMs": 39514,
-"endMs": 39736,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " people",
-"startMs": 39736,
-"endMs": 40123,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " come",
-"startMs": 40123,
-"endMs": 40400,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " to",
-"startMs": 40400,
-"endMs": 40566,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " build",
-"startMs": 40566,
-"endMs": 40898,
+"text": " launchpad",
+"startMs": 2088,
+"endMs": 2691,
 "timestampMs": null,
 "confidence": null
 },
 {
 "text": " on",
-"startMs": 40898,
-"endMs": 41064,
+"startMs": 2691,
+"endMs": 2872,
 "timestampMs": null,
 "confidence": null
 },
 {
 "text": " Arc,",
-"startMs": 41064,
-"endMs": 41340,
+"startMs": 2872,
+"endMs": 3173,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Circle's",
+"startMs": 3293,
+"endMs": 3790,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " new",
+"startMs": 3790,
+"endMs": 4011,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " chain.",
+"startMs": 4011,
+"endMs": 4398,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Every",
+"startMs": 4518,
+"endMs": 4888,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " day,",
+"startMs": 4888,
+"endMs": 5197,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " fresh",
+"startMs": 5317,
+"endMs": 5623,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " coins",
+"startMs": 5623,
+"endMs": 5930,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " launch",
+"startMs": 5930,
+"endMs": 6287,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " here,",
+"startMs": 6287,
+"endMs": 6594,
 "timestampMs": null,
 "confidence": null
 },
 {
 "text": " and",
-"startMs": 41460,
-"endMs": 41660,
+"startMs": 6714,
+"endMs": 6933,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " get",
-"startMs": 41660,
-"endMs": 41860,
+"text": " everyone",
+"startMs": 6933,
+"endMs": 7426,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " drained",
-"startMs": 41860,
-"endMs": 42259,
+"text": " wants",
+"startMs": 7426,
+"endMs": 7754,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " instead.",
-"startMs": 42259,
-"endMs": 42709,
+"text": " a",
+"startMs": 7754,
+"endMs": 7864,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " So",
-"startMs": 44609,
-"endMs": 44793,
+"text": " piece",
+"startMs": 7864,
+"endMs": 8192,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " we",
-"startMs": 44793,
-"endMs": 44977,
+"text": " of",
+"startMs": 8192,
+"endMs": 8357,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " built",
-"startMs": 44977,
-"endMs": 45345,
+"text": " the",
+"startMs": 8357,
+"endMs": 8576,
 "timestampMs": null,
 "confidence": null
 },
 {
 "text": " Arc",
-"startMs": 45345,
-"endMs": 45590,
+"startMs": 8576,
+"endMs": 8795,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " Memecoin",
-"startMs": 45590,
-"endMs": 46142,
+"text": " economy.",
+"startMs": 8795,
+"endMs": 9288,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " Intel.",
-"startMs": 46142,
-"endMs": 46571,
+"text": " Meet",
+"startMs": 10996,
+"endMs": 11384,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " One",
-"startMs": 46691,
-"endMs": 46915,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " command",
-"startMs": 46915,
-"endMs": 47364,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " adds",
-"startMs": 47364,
-"endMs": 47644,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " it",
-"startMs": 47644,
-"endMs": 47813,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " to",
-"startMs": 47813,
-"endMs": 47981,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Claude",
-"startMs": 47981,
-"endMs": 48373,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Code,",
-"startMs": 48373,
-"endMs": 48710,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Codex,",
-"startMs": 48830,
-"endMs": 49450,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " or",
-"startMs": 49570,
-"endMs": 49783,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " any",
-"startMs": 49783,
-"endMs": 50066,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " agent.",
-"startMs": 50066,
-"endMs": 50562,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " Paste",
-"startMs": 52463,
-"endMs": 52784,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " a",
-"startMs": 52784,
-"endMs": 52891,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " contract",
-"startMs": 52891,
-"endMs": 53372,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " address.",
-"startMs": 53372,
-"endMs": 53854,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " It",
-"startMs": 53974,
-"endMs": 54142,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " reads",
-"startMs": 54142,
-"endMs": 54478,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " the",
-"startMs": 54478,
-"endMs": 54702,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " chain",
-"startMs": 54702,
-"endMs": 55038,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " and",
-"startMs": 55038,
-"endMs": 55263,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " shows",
-"startMs": 55263,
-"endMs": 55599,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " you",
-"startMs": 55599,
-"endMs": 55823,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " everything",
-"startMs": 55823,
-"endMs": 56439,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " before",
-"startMs": 56439,
-"endMs": 56832,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " you",
-"startMs": 56832,
-"endMs": 57056,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " spend",
-"startMs": 57056,
-"endMs": 57392,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " a",
-"startMs": 57392,
-"endMs": 57504,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " cent:",
-"startMs": 57504,
-"endMs": 57841,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " bundled",
-"startMs": 57961,
-"endMs": 58459,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " wallets,",
-"startMs": 58459,
-"endMs": 59021,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " shared",
-"startMs": 59141,
-"endMs": 59547,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " funders,",
-"startMs": 59547,
-"endMs": 60069,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " who",
-"startMs": 60189,
-"endMs": 60416,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " holds",
-"startMs": 60416,
-"endMs": 60757,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " the",
-"startMs": 60757,
-"endMs": 60984,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " supply,",
-"startMs": 60984,
-"endMs": 61439,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " whether",
-"startMs": 61559,
-"endMs": 61956,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " liquidity",
-"startMs": 61956,
-"endMs": 62453,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " can",
-"startMs": 62453,
-"endMs": 62651,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " be",
-"startMs": 62651,
-"endMs": 62800,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " pulled,",
-"startMs": 62800,
-"endMs": 63198,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " and",
-"startMs": 63318,
-"endMs": 63511,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " a",
-"startMs": 63511,
-"endMs": 63608,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " clear",
-"startMs": 63608,
-"endMs": 63899,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " risk",
-"startMs": 63899,
-"endMs": 64141,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " score.",
-"startMs": 64141,
-"endMs": 64480,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " This",
-"startMs": 66381,
-"endMs": 66715,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " time,",
-"startMs": 66715,
-"endMs": 67116,
+"text": " Sam.",
+"startMs": 11384,
+"endMs": 11772,
 "timestampMs": null,
 "confidence": null
 },
 {
 "text": " Sam",
-"startMs": 67236,
-"endMs": 67506,
+"startMs": 11892,
+"endMs": 12142,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " scans",
-"startMs": 67506,
-"endMs": 67911,
+"text": " spots",
+"startMs": 12142,
+"endMs": 12516,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " first.",
-"startMs": 67911,
-"endMs": 68383,
+"text": " a",
+"startMs": 12516,
+"endMs": 12641,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " Critical",
-"startMs": 68503,
-"endMs": 69028,
+"text": " new",
+"startMs": 12641,
+"endMs": 12891,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " risk.",
-"startMs": 69028,
-"endMs": 69379,
+"text": " coin,",
+"startMs": 12891,
+"endMs": 13266,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " Sam",
-"startMs": 69499,
-"endMs": 69761,
+"text": " up",
+"startMs": 13386,
+"endMs": 13565,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " walks",
-"startMs": 69761,
-"endMs": 70154,
+"text": " sixty",
+"startMs": 13565,
+"endMs": 13922,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " away,",
-"startMs": 70154,
-"endMs": 70547,
+"text": " nine",
+"startMs": 13922,
+"endMs": 14219,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " five",
-"startMs": 70667,
-"endMs": 70903,
+"text": " percent,",
+"startMs": 14219,
+"endMs": 14755,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " hundred",
-"startMs": 70903,
-"endMs": 71280,
+"text": " and",
+"startMs": 14875,
+"endMs": 15095,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " dollars",
-"startMs": 71280,
-"endMs": 71657,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " still",
-"startMs": 71657,
-"endMs": 71940,
+"text": " apes",
+"startMs": 15095,
+"endMs": 15371,
 "timestampMs": null,
 "confidence": null
 },
 {
 "text": " in",
-"startMs": 71940,
-"endMs": 72081,
+"startMs": 15371,
+"endMs": 15536,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " five",
+"startMs": 15536,
+"endMs": 15811,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " hundred",
+"startMs": 15811,
+"endMs": 16252,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " dollars.",
+"startMs": 16252,
+"endMs": 16748,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " What",
+"startMs": 18456,
+"endMs": 18753,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Sam",
+"startMs": 18753,
+"endMs": 18990,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " can't",
+"startMs": 18990,
+"endMs": 19346,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " see:",
+"startMs": 19346,
+"endMs": 19643,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " three",
+"startMs": 19763,
+"endMs": 20070,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " wallets",
+"startMs": 20070,
+"endMs": 20479,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " bought",
+"startMs": 20479,
+"endMs": 20837,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " in",
+"startMs": 20837,
+"endMs": 20990,
 "timestampMs": null,
 "confidence": null
 },
 {
 "text": " the",
-"startMs": 72081,
-"endMs": 72269,
+"startMs": 20990,
+"endMs": 21195,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " wallet.",
-"startMs": 72269,
-"endMs": 72646,
+"text": " very",
+"startMs": 21195,
+"endMs": 21450,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " first",
+"startMs": 21450,
+"endMs": 21757,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " block.",
+"startMs": 21757,
+"endMs": 22115,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " All",
+"startMs": 22235,
+"endMs": 22454,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " funded",
+"startMs": 22454,
+"endMs": 22838,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " by",
+"startMs": 22838,
+"endMs": 23002,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " the",
+"startMs": 23002,
+"endMs": 23221,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " same",
+"startMs": 23221,
+"endMs": 23495,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " address.",
+"startMs": 23495,
+"endMs": 23988,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Together,",
+"startMs": 24108,
+"endMs": 24731,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " they",
+"startMs": 24851,
+"endMs": 25108,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " hold",
+"startMs": 25108,
+"endMs": 25364,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " a",
+"startMs": 25364,
+"endMs": 25467,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " third",
+"startMs": 25467,
+"endMs": 25774,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " of",
+"startMs": 25774,
+"endMs": 25928,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " the",
+"startMs": 25928,
+"endMs": 26133,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " supply.",
+"startMs": 26133,
+"endMs": 26544,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Twelve",
+"startMs": 28252,
+"endMs": 28598,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " minutes",
+"startMs": 28598,
+"endMs": 28993,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " later,",
+"startMs": 28993,
+"endMs": 29339,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " they",
+"startMs": 29459,
+"endMs": 29767,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " sell.",
+"startMs": 29767,
+"endMs": 30136,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Five",
+"startMs": 30256,
+"endMs": 30539,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " hundred",
+"startMs": 30539,
+"endMs": 30991,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " dollars,",
+"startMs": 30991,
+"endMs": 31500,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " gone.",
+"startMs": 31620,
+"endMs": 32121,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Sam",
+"startMs": 32241,
+"endMs": 32491,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " just",
+"startMs": 32491,
+"endMs": 32804,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " got",
+"startMs": 32804,
+"endMs": 33054,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " bundled.",
+"startMs": 33054,
+"endMs": 33618,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " This",
+"startMs": 35326,
+"endMs": 35620,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " happens",
+"startMs": 35620,
+"endMs": 36090,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " every",
+"startMs": 36090,
+"endMs": 36443,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " single",
+"startMs": 36443,
+"endMs": 36855,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " day.",
+"startMs": 36855,
+"endMs": 37149,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Bundled",
+"startMs": 37269,
+"endMs": 37768,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " launches.",
+"startMs": 37768,
+"endMs": 38391,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " No",
+"startMs": 38511,
+"endMs": 38703,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " community.",
+"startMs": 38703,
+"endMs": 39410,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " No",
+"startMs": 39530,
+"endMs": 39778,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " trust.",
+"startMs": 39778,
+"endMs": 40358,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " New",
+"startMs": 40478,
+"endMs": 40699,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " people",
+"startMs": 40699,
+"endMs": 41086,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " come",
+"startMs": 41086,
+"endMs": 41363,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " to",
+"startMs": 41363,
+"endMs": 41529,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " build",
+"startMs": 41529,
+"endMs": 41861,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " on",
+"startMs": 41861,
+"endMs": 42027,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Arc,",
+"startMs": 42027,
+"endMs": 42304,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " and",
+"startMs": 42424,
+"endMs": 42623,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " get",
+"startMs": 42623,
+"endMs": 42823,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " drained",
+"startMs": 42823,
+"endMs": 43223,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " instead.",
+"startMs": 43223,
+"endMs": 43672,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " So",
+"startMs": 45380,
+"endMs": 45564,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " we",
+"startMs": 45564,
+"endMs": 45748,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " built",
+"startMs": 45748,
+"endMs": 46116,
 "timestampMs": null,
 "confidence": null
 },
 {
 "text": " Arc",
-"startMs": 74547,
-"endMs": 74819,
+"startMs": 46116,
+"endMs": 46361,
 "timestampMs": null,
 "confidence": null
 },
 {
 "text": " Memecoin",
-"startMs": 74819,
-"endMs": 75431,
+"startMs": 46361,
+"endMs": 46913,
 "timestampMs": null,
 "confidence": null
 },
 {
 "text": " Intel.",
-"startMs": 75431,
-"endMs": 75906,
+"startMs": 46913,
+"endMs": 47342,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " Know",
-"startMs": 76026,
-"endMs": 76256,
+"text": " One",
+"startMs": 47462,
+"endMs": 47686,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " where",
-"startMs": 76256,
-"endMs": 76532,
+"text": " command",
+"startMs": 47686,
+"endMs": 48135,
 "timestampMs": null,
 "confidence": null
 },
 {
-"text": " your",
-"startMs": 76532,
-"endMs": 76762,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " money",
-"startMs": 76762,
-"endMs": 77037,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " goes,",
-"startMs": 77037,
-"endMs": 77313,
-"timestampMs": null,
-"confidence": null
-},
-{
-"text": " before",
-"startMs": 77433,
-"endMs": 77856,
+"text": " adds",
+"startMs": 48135,
+"endMs": 48415,
 "timestampMs": null,
 "confidence": null
 },
 {
 "text": " it",
-"startMs": 77856,
-"endMs": 78037,
+"startMs": 48415,
+"endMs": 48583,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " to",
+"startMs": 48583,
+"endMs": 48752,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Claude",
+"startMs": 48752,
+"endMs": 49144,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Code,",
+"startMs": 49144,
+"endMs": 49481,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Codex,",
+"startMs": 49601,
+"endMs": 50221,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " or",
+"startMs": 50341,
+"endMs": 50554,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " any",
+"startMs": 50554,
+"endMs": 50837,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " agent.",
+"startMs": 50837,
+"endMs": 51333,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Paste",
+"startMs": 53041,
+"endMs": 53362,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " a",
+"startMs": 53362,
+"endMs": 53469,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " contract",
+"startMs": 53469,
+"endMs": 53950,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " address.",
+"startMs": 53950,
+"endMs": 54432,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " It",
+"startMs": 54552,
+"endMs": 54720,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " reads",
+"startMs": 54720,
+"endMs": 55056,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " the",
+"startMs": 55056,
+"endMs": 55280,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " chain",
+"startMs": 55280,
+"endMs": 55616,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " and",
+"startMs": 55616,
+"endMs": 55841,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " shows",
+"startMs": 55841,
+"endMs": 56177,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " you",
+"startMs": 56177,
+"endMs": 56401,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " everything",
+"startMs": 56401,
+"endMs": 57017,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " before",
+"startMs": 57017,
+"endMs": 57410,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " you",
+"startMs": 57410,
+"endMs": 57634,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " spend",
+"startMs": 57634,
+"endMs": 57970,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " a",
+"startMs": 57970,
+"endMs": 58082,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " cent:",
+"startMs": 58082,
+"endMs": 58419,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " bundled",
+"startMs": 58539,
+"endMs": 59037,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " wallets,",
+"startMs": 59037,
+"endMs": 59599,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " shared",
+"startMs": 59719,
+"endMs": 60125,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " funders,",
+"startMs": 60125,
+"endMs": 60647,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " who",
+"startMs": 60767,
+"endMs": 60994,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " holds",
+"startMs": 60994,
+"endMs": 61335,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " the",
+"startMs": 61335,
+"endMs": 61563,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " supply,",
+"startMs": 61563,
+"endMs": 62017,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " whether",
+"startMs": 62137,
+"endMs": 62534,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " liquidity",
+"startMs": 62534,
+"endMs": 63031,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " can",
+"startMs": 63031,
+"endMs": 63230,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " be",
+"startMs": 63230,
+"endMs": 63378,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " pulled,",
+"startMs": 63378,
+"endMs": 63776,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " and",
+"startMs": 63896,
+"endMs": 64089,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " a",
+"startMs": 64089,
+"endMs": 64186,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " clear",
+"startMs": 64186,
+"endMs": 64477,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " risk",
+"startMs": 64477,
+"endMs": 64719,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " score.",
+"startMs": 64719,
+"endMs": 65059,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " This",
+"startMs": 66767,
+"endMs": 67100,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " time,",
+"startMs": 67100,
+"endMs": 67501,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Sam",
+"startMs": 67621,
+"endMs": 67891,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " scans",
+"startMs": 67891,
+"endMs": 68296,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " first.",
+"startMs": 68296,
+"endMs": 68768,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Critical",
+"startMs": 68888,
+"endMs": 69414,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " risk.",
+"startMs": 69414,
+"endMs": 69764,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Sam",
+"startMs": 69884,
+"endMs": 70146,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " walks",
+"startMs": 70146,
+"endMs": 70540,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " away,",
+"startMs": 70540,
+"endMs": 70933,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " five",
+"startMs": 71053,
+"endMs": 71288,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " hundred",
+"startMs": 71288,
+"endMs": 71665,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " dollars",
+"startMs": 71665,
+"endMs": 72042,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " still",
+"startMs": 72042,
+"endMs": 72325,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " in",
+"startMs": 72325,
+"endMs": 72466,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " the",
+"startMs": 72466,
+"endMs": 72655,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " wallet.",
+"startMs": 72655,
+"endMs": 73032,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Arc",
+"startMs": 74740,
+"endMs": 75012,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Memecoin",
+"startMs": 75012,
+"endMs": 75623,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Intel.",
+"startMs": 75623,
+"endMs": 76099,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " Know",
+"startMs": 76219,
+"endMs": 76449,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " where",
+"startMs": 76449,
+"endMs": 76725,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " your",
+"startMs": 76725,
+"endMs": 76954,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " money",
+"startMs": 76954,
+"endMs": 77230,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " goes,",
+"startMs": 77230,
+"endMs": 77506,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " before",
+"startMs": 77626,
+"endMs": 78048,
+"timestampMs": null,
+"confidence": null
+},
+{
+"text": " it",
+"startMs": 78048,
+"endMs": 78230,
 "timestampMs": null,
 "confidence": null
 },
 {
 "text": " goes.",
-"startMs": 78037,
-"endMs": 78399,
+"startMs": 78230,
+"endMs": 78592,
 "timestampMs": null,
 "confidence": null
 }

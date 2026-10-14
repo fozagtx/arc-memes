@@ -2,46 +2,46 @@
  {
   "id": "s1_arc",
   "from": 0,
-  "frames": 275
+  "frames": 321
  },
  {
   "id": "s2_sam",
-  "from": 275,
-  "frames": 230
+  "from": 321,
+  "frames": 224
  },
  {
   "id": "s3_hidden",
-  "from": 504,
-  "frames": 300
+  "from": 545,
+  "frames": 294
  },
  {
   "id": "s4_rug",
-  "from": 804,
-  "frames": 218
+  "from": 839,
+  "frames": 212
  },
  {
   "id": "s5_problem",
-  "from": 1022,
-  "frames": 307
+  "from": 1051,
+  "frames": 302
  },
  {
   "id": "s6_install",
-  "from": 1329,
-  "frames": 236
+  "from": 1352,
+  "frames": 230
  },
  {
   "id": "s7_scan",
-  "from": 1565,
-  "frames": 418
+  "from": 1582,
+  "frames": 412
  },
  {
   "id": "s8_save",
-  "from": 1982,
-  "frames": 245
+  "from": 1994,
+  "frames": 239
  },
  {
   "id": "s9_cta",
-  "from": 2227,
-  "frames": 173
+  "from": 2233,
+  "frames": 167
  }
 ]
